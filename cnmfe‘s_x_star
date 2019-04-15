@@ -1,0 +1,22 @@
+import numpy as np
+import h5py
+
+hdfpath = r"E:\natsu\Obj_1 - recording_20180410_093103-trim-preproc-mc.h5"
+with h5py.File(hdfpath,'r') as f:
+    # ファイルオブジェクトをイテレートするとファイル直下のオブジェクト名を返す
+    data=f['/Object'][0]
+    
+#print(data[0].shape)
+
+i = 0
+j = 0
+
+M = data[0]
+l = 20
+for i in range(355):
+    for j in range(266):
+        #print(M[i-l:i+l+1,j-l:j+l+1])
+        N=M[i-l:i+l+1,j-l:j+l+1]
+        
+N.shape
+print(N)
